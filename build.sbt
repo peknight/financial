@@ -13,5 +13,5 @@ lazy val financial = (project in file("."))
 lazy val financialCore = (crossProject(JVMPlatform, JSPlatform) in file("financial-core"))
   .settings(name := "financial-core")
   .settings(crossDependencies(
-      peknight.codec,
+    peknight.codec.squants,
   ))

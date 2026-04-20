@@ -12,7 +12,7 @@ end Symbol
 object Symbol:
   given stringCodecSymbol[F[_] : Applicative]: Codec[F, String, String, Symbol] =
     Codec.map[F, String, String, Symbol](_.value)(Symbol.apply)
-  given codecSymbol[F[_] : Applicative, S: {StringType, Show}]: Codec[F, S, Cursor[S], Symbol] =
+  given codecSymbolS[F[_] : Applicative, S: {StringType, Show}]: Codec[F, S, Cursor[S], Symbol] =
     Codec.codecS[F, S, Symbol]
   given eqSymbol: Eq[Symbol] with
     def eqv(x: Symbol, y: Symbol): Boolean = x.value === y.value
